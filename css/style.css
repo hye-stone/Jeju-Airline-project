@@ -138,7 +138,7 @@ header #nav .subWrap .subList > li > a:hover {
   color: #f0583a;
 }
 header .gnb {
-  margin: 0px 45px;
+  margin: 20px 45px;
   float: right;
 }
 @media screen and (max-width: 767px) {
@@ -183,9 +183,6 @@ header .gnb > .hamBtn {
             transform: rotate(0deg);
     -webkit-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
-  }
-  header .gnb > .hamBtn span:first-child {
-    margin-top: 27px;
   }
 }
 @media screen and (max-width: 1075px) and (max-width: 767px) {
