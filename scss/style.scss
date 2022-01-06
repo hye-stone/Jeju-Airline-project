@@ -1,0 +1,1531 @@
+//=============== color,width,font size ===============
+$메인컬러: #f0583a;
+$서브컬러: #f0f2f7;
+$링크메인: #111;
+$링크서브: #4a4a4a;
+$배경컬러: #373737;
+$메뉴크기: 17px;
+$메뉴서브크기: 14px;
+$제목크기: 24px;
+$pc_width: 1624px;
+$iPad_width: 1280px;
+$iPad_M_width: 1075px;
+$mobile_width: 767px;
+$m640: 640px;
+//=============== position ===============
+@mixin pos($p: absolute, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $p;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+//요소들 붙이기, 여백
+@mixin floatMargin($margin) {
+  float: left;
+  margin-right: $margin;
+}
+// 반응형
+@mixin mobile-screen($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+//=============== center ===============
+.center {
+  max-width: $pc_width;
+  margin: 0 auto;
+  // background: rgba(225, 0, 0, 0.3);
+  position: relative;
+  @include mobile-screen($iPad_width) {
+    max-width: 97%;
+  }
+  @include mobile-screen($mobile_width) {
+    max-width: 95%;
+  }
+}
+//=============== Header ===============
+header {
+  position: relative;
+  z-index: 1000;
+  border-top: 1px solid $서브컬러;
+  border-bottom: 1px solid $서브컬러;
+  .logo {
+    float: left;
+    margin: 20px 10px;
+    img {
+      @include mobile-screen($mobile_width) {
+        width: 120px;
+      }
+    }
+  }
+  //=============== #nav ===============
+  #nav {
+    z-index: 1000;
+    width: 100%;
+    @include mobile-screen($iPad_M_width) {
+      display: none;
+    }
+    ul {
+    }
+    > li {
+      float: left;
+      margin-top: 15px;
+      margin-left: 60px;
+      &:hover .sub {
+        display: block;
+        opacity: 1;
+        height: auto;
+      }
+      &:hover .subWrap {
+        opacity: 1;
+        height: auto;
+        > li {
+          float: left;
+          padding: 30px 35px;
+          line-height: 2.5;
+        }
+        > a {
+          font-size: $메뉴크기;
+          font-weight: 400;
+          &:hover {
+            text-decoration: none;
+            color: $메인컬러;
+          }
+        }
+      }
+      > a {
+        position: relative;
+        font-size: $메뉴크기;
+        color: black;
+        line-height: 59px;
+        height: 100%;
+        display: block;
+        &:hover {
+          text-decoration: none;
+        }
+        &::after {
+          content: "";
+          display: block;
+          width: 0%;
+          height: 3px;
+          background: $메인컬러;
+          position: absolute;
+          left: 0;
+          transition: 0.5s;
+        }
+        &::before {
+          content: "";
+          display: inline-block;
+          border: 4px solid transparent;
+          border-top-color: #f0583a;
+          margin-right: 0.5em;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+    .sub {
+      position: absolute;
+      background: white;
+      top: 77px;
+      right: 0;
+      width: 100%;
+      box-shadow: 0px 5px 10px rgba(100, 100, 100, 0.07);
+      overflow: hidden;
+      opacity: 0;
+      transition: 0.5s;
+    }
+    .subWrap {
+      margin-left: 150px;
+      transition: 0.5s;
+      overflow: hidden;
+      opacity: 0;
+      height: 0;
+      transition: 0.5s;
+
+      > li {
+        margin-left: 10px;
+        > a {
+          display: block;
+          font-size: $메뉴서브크기;
+          font-weight: bold;
+          padding-bottom: 5px;
+          text-decoration: none;
+        }
+      }
+      .subList {
+        > li {
+          > a {
+            font-size: $메뉴서브크기;
+            font-weight: 400;
+            &:hover {
+              text-decoration: none;
+              color: $메인컬러;
+            }
+          }
+        }
+      }
+    }
+  }
+  .gnb {
+    margin: 0px 45px;
+    float: right;
+    @include mobile-screen($mobile_width) {
+      margin: 10px 10px;
+    }
+    > div {
+      margin-top: 12px;
+      padding: 0 5px;
+      display: inline-block;
+    }
+    > .weatherWrap {
+      @include mobile-screen($mobile_width) {
+        display: none;
+      }
+    }
+    > .hamBtn {
+      display: none;
+      @include mobile-screen($iPad_M_width) {
+        display: block;
+        padding: 0 10px;
+        width: 30px;
+        float: right;
+        cursor: pointer;
+        transform: rotate(0deg);
+        transition: 0.5s ease-in-out;
+        span {
+          display: block;
+          position: relative;
+          margin: 6px 0px;
+          width: 30px;
+          border-bottom: 1.5px solid black;
+          opacity: 1;
+          left: 0;
+          transform: rotate(0deg);
+          transition: 0.25s ease-in-out;
+          &:first-child {
+            margin-top: 27px;
+            @include mobile-screen($mobile_width) {
+              margin-top: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+  #mNav {
+    display: none;
+    @include mobile-screen($iPad_M_width) {
+      display: block;
+      z-index: 10000;
+      width: 100%;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+      left: -100%;
+      @include pos($top: 76px, $right: 0);
+      @include mobile-screen($mobile_width){
+        margin-top: -9px;
+      }
+      .mNav {
+        background-color: white;
+        padding: 50px 30px;
+        li {
+          margin-bottom: 20px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          display: block;
+          text-align: center;
+          &:focus .mTitle,
+          &:hover .mTitle {
+            color: $메인컬러;
+          }
+          .mTitle {
+            display: block;
+            padding: 5px;
+            box-sizing: border-box;
+            font: {
+              size: 20px;
+              weight: 700;
+            }
+          }
+          .sub {
+            display: none;
+            li {
+              margin-top: 20px;
+              a {
+                font-size: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+    .langWrap {
+      .lang {
+        cursor: pointer;
+        padding: 10px 60px;
+        font-size: $메뉴크기;
+        background-color: $서브컬러;
+      }
+    }
+  @keyframes bgAni {
+    0% {
+      background-position: 0 center;
+    }
+    100% {
+      background-position: 700% center;
+    }
+  }
+  .ham span:nth-child(1) {
+    top: 0px;
+  }
+  .ham span:nth-child(2) {
+    top: 10px;
+  }
+  .ham span:nth-child(3) {
+    top: 20px;
+  }
+  .ham.ab span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+  }
+  .ham.ab span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+  .ham.ab span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg);
+  }
+}
+//=============== #container ===============
+#container {
+  background-color: $서브컬러;
+  //=============== #mainBanner ===============
+  #mainBanner {
+    background-color: white;
+    background: url(../images/mainBackground.jpeg) center center;
+    width: 100%;
+    overflow: hidden;
+    .mBannerWrap {
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .bannerText {
+        width: 1065px;
+        height: 235px;
+        background-color: #fff;
+        position: relative;
+        float: left;
+        @include mobile-screen($pc_width) {
+          width: 100%;
+          height: 170px;
+          max-width: 100%;
+        }
+        .bText {
+          float: right;
+          padding: 75px 70px 0 0;
+          width: 400px;
+          text-align: right;
+          @include mobile-screen($pc_width) {
+            padding: 50px 10px 0 0;
+          }
+          p {
+            font-size: 30px;
+            @include mobile-screen($mobile_width) {
+              font-size: 20px;
+            }
+          }
+          span {
+            font-weight: bold;
+            color: $메인컬러;
+            font-size: 60px;
+            @include mobile-screen($mobile_width) {
+              font-size: 40px;
+            }
+          }
+        }
+      }
+      .book {
+        background-color: $메인컬러;
+        width: 559px;
+        height: 802px;
+        float: right;
+        @include mobile-screen($pc_width) {
+          width: 100%;
+        }
+        @include mobile-screen($mobile_width) {
+          width: 100%;
+          height: 715px;
+        }
+        button {
+          margin-left: 20px;
+          width: 350px;
+          height: 50px;
+          text-align: left;
+          margin-bottom: 8px;
+          background: none;
+          border-bottom: 1px solid white;
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          color: white;
+          line-height: 3;
+          font-size: 14px;
+          position: relative;
+          @include mobile-screen($pc_width) {
+            width: 180px;
+            border: none;
+            border-radius: 10px;
+            padding-left: 10px;
+            z-index: 100;
+            background-color: $메인컬러;
+            top: 10%;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+            &:hover {
+              border: none;
+              background-color: #777;
+            }
+          }
+          @include mobile-screen($iPad_width) {
+            width: 160px;
+          }
+          @include mobile-screen($mobile_width) {
+            display: none;
+          }
+          &:first-child {
+            margin-top: 30px;
+            @include mobile-screen($pc_width) {
+              margin-top: 0px;
+              margin-left: 29%;
+            }
+            @include mobile-screen($iPad_M_width) {
+              margin-left: 24%;
+            }
+          }
+          &::after {
+            content: "";
+            display: inline-block;
+            background: url(../images/arrow-wh.png) no-repeat;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            margin-top: 10px;
+            right: 0;
+            @include mobile-screen($pc_width) {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .bannerImg {
+        width: 100%;
+        img {
+          float: left;
+          bottom: 0;
+          position: absolute;
+          left: 0;
+          @include mobile-screen($pc_width) {
+            top: 18%;
+            width: 100%;
+          }
+        }
+      }
+      .searchWrap {
+        width: 450px;
+        height: 571px;
+        background: url(../images/JEJU_03.png) left center no-repeat;
+        bottom: 0;
+        right: 6.7%;
+        position: absolute;
+        @include mobile-screen($pc_width) {
+          top: 38%;
+          left: 50%;
+          transform: translateX(-50%);
+          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        @include mobile-screen($iPad_M_width) {
+          top: 37%;
+        }
+        @include mobile-screen($mobile_width) {
+          top: 33%;
+        }
+        .search {
+          width: 66%;
+          left: 50%;
+          transform: translateX(-50%);
+          position: absolute;
+          h2 {
+            font-size: 30px;
+            font-weight: 400;
+            padding: 40px 0 33px 0;
+            @include mobile-screen($mobile_width) {
+              padding: 30px 0 33px 0;
+              font-size: 20px;
+            }
+          }
+          .searchType {
+            background-image: linear-gradient(
+              to right,
+              gray 25%,
+              rgba(255, 255, 255, 0) 0%
+            );
+            background-position: bottom;
+            background-size: 10px 2px;
+            background-repeat: repeat-x;
+            padding-bottom: 20px;
+            .searchList {
+              display: inline-flex;
+              li {
+                margin-right: 30px;
+                a {
+                  line-height: 2;
+                  font-size: 16px;
+                }
+              }
+              .active {
+                line-height: 1.2;
+                border-bottom: 2.5px solid $메인컬러;
+              }
+            }
+          }
+          .bookingWrap {
+            .booking {
+              padding-top: 20px;
+              li {
+                padding: 10px 0;
+                button {
+                  text-align: left;
+                  background-color: white;
+                  border: 1.5px solid gray;
+                  width: 95%;
+                  height: 35px;
+                  font-size: $메뉴크기;
+                  color: black;
+                  &:hover {
+                    border: 1.5px solid $메인컬러;
+                  }
+                }
+                input {
+                  text-align: left;
+                  background-color: white;
+                  border: 1.5px solid gray;
+                  width: 68%;
+                  height: 35px;
+                  font-size: $메뉴크기;
+                  color: black;
+                  padding: 0 40px;
+                  &:hover {
+                    border: 1.5px solid $메인컬러;
+                  }
+                  &::placeholder {
+                    color: #000;
+                  }
+                }
+              }
+              .from,
+              .to {
+                padding: 0 40px;
+                background: url(../images/map-pin-stroke.svg) 10px center
+                  no-repeat;
+              }
+              .depart,
+              .return {
+                background: url(../images/map-pin-stroke.svg) 10px center
+                  no-repeat;
+              }
+              #cal {
+                padding: 0 40px;
+                background: url(../images/calendar.svg) 10px center no-repeat;
+              }
+              .pass {
+                padding: 0 40px;
+                background: url(../images/passenger.svg) 10px center no-repeat;
+              }
+            }
+            .searchBtn {
+              margin: 20px 0 0 40px;
+              button {
+                color: white;
+                border: none;
+                font-size: $메뉴크기;
+                border-radius: 10px;
+                background-color: $메인컬러;
+                height: 56px;
+                width: 200px;
+                &:hover {
+                  background-color: #777;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //=============== event ===============
+  .event {
+    .headTitle {
+      display: flex;
+      justify-content: space-between;
+      margin: 90px 0 60px 0;
+      .title {
+        font-size: $제목크기;
+      }
+      .more {
+        float: right;
+        a {
+          color: $메인컬러;
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+    }
+    .eventWrap {
+      .jejuEvent {
+        justify-content: space-around;
+        display: flex;
+        padding-bottom: 150px;
+        padding-top: 50px;
+        @include mobile-screen($mobile_width) {
+          display: block;
+          margin: 0 auto;
+        }
+        li {
+          margin: 0 1%;
+          position: relative;
+          @include mobile-screen($mobile_width) {
+            margin: 10px 2.5%;
+            float: left;
+            width: 45%;
+            box-sizing: border-box;
+          }
+          a {
+            display: block;
+            img {
+              box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+              width: 100%;
+              border-radius: 15px;
+              @include mobile-screen($pc_width) {
+                width: 100%;
+                margin: 5% 0;
+              }
+              @include mobile-screen($iPad_width) {
+                margin: 2% 0;
+              }
+            }
+            .textBox {
+              position: absolute;
+              width: 86%;
+              padding: 7%;
+              bottom: 0;
+              top: 67%;
+              @include mobile-screen($iPad_width) {
+                width: 76%;
+              }
+              strong {
+                font-size: $메뉴크기;
+                display: block;
+                padding-bottom: 12%;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+              span {
+                @include mobile-screen($iPad_M_width) {
+                  font-size: 11px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //=============== notice ===============
+  .notice {
+    background: #000
+      linear-gradient(
+        153deg,
+        rgba(119, 122, 129, 0.5),
+        rgba(50, 51, 53, 0.5) 200vh
+      );
+    .center {
+      display: flex;
+      justify-content: space-between;
+      @include mobile-screen($iPad_width) {
+        flex-direction: column;
+        margin: 0 auto;
+      }
+      @include mobile-screen($mobile_width) {
+        display: block;
+      }
+      .noticeText {
+        display: block;
+        @include mobile-screen($iPad_width) {
+          text-align: center;
+          margin: 0 auto;
+        }
+        h2 {
+          color: white;
+          font-size: 45px;
+          padding: 180px 20px 10px 50px;
+          @include mobile-screen($iPad_width) {
+            padding: 50px 10px 0px 50px;
+            font-size: 2em;
+          }
+          @include mobile-screen($iPad_M_width) {
+            padding: 50px 10px 0px 0px;
+          }
+        }
+        p {
+          color: white;
+          font-size: $메뉴서브크기;
+          padding: 0 20px 0 50px;
+          @include mobile-screen($iPad_width) {
+            padding: 10px 10px 20px 50px;
+          }
+          @include mobile-screen($iPad_M_width) {
+            padding: 30px 0px 20px 0px;
+          }
+        }
+        .more {
+          padding-top: 10px;
+          a {
+            color: $메인컬러;
+          }
+        }
+      }
+      .noticeWrap {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        @include mobile-screen($iPad_width) {
+          padding: 20px 0px 0px 40px;
+          margin: 0 auto;
+        }
+        @include mobile-screen($iPad_M_width) {
+          padding: 15px 0px 0px 15px;
+        }
+        ul {
+          li {
+            border: 1px solid gray;
+            width: 520px;
+            height: 64px;
+            margin: 25px;
+            line-height: 64px;
+            position: relative;
+            @include mobile-screen($iPad_width) {
+              margin-bottom: 20px;
+              width: 600px;
+            }
+            @include mobile-screen($mobile_width) {
+              width: 94%;
+              margin-left: 0;
+            }
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              transition: 0.5s;
+              background-color: #fff;
+              height: 1px;
+              width: 0%;
+              bottom: -1px;
+              right: 0;
+            }
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              transition: 0.5s;
+              background-color: #fff;
+              height: 1px;
+              width: 0%;
+              top: -1px;
+              left: 0;
+            }
+            &:hover {
+              border: 1px solid transparent;
+              box-sizing: border-box;
+              &::before {
+                width: calc(100% + 1px);
+              }
+              &::after {
+                width: calc(100% + 1px);
+              }
+              a {
+                &::before {
+                  height: calc(100% + 1px);
+                }
+                &::after {
+                  height: calc(100% + 1px);
+                }
+              }
+            }
+            span {
+              &:nth-child(1) {
+                width: 400px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                float: left;
+                padding-left: 10px;
+                @include mobile-screen($pc_width) {
+                  width: 70%;
+                }
+                @include mobile-screen($iPad_width) {
+                  width: 60%;
+                }
+                @include mobile-screen($mobile_width) {
+                  width: 50%;
+                }
+              }
+              &:nth-child(2) {
+                float: right;
+                padding-right: 10px;
+              }
+            }
+            a {
+              color: $서브컬러;
+              font-size: $메뉴서브크기;
+              @include mobile-screen($iPad_width) {
+                font-size: 15px;
+              }
+              &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                transition: 0.5s;
+                background-color: #fff;
+                width: 1px;
+                height: 0%;
+                left: -1px;
+                bottom: 0;
+              }
+              &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                transition: 0.5s;
+                background-color: #fff;
+                width: 1px;
+                height: 0%;
+                right: -1px;
+                top: 0;
+              }
+            }
+          }
+        }
+      }
+      .leftNews,
+      .rightNews {
+        position: relative;
+        a {
+          font-size: 20px;
+        }
+      }
+      .rightNews {
+        li {
+          &:last-child {
+            @include mobile-screen($iPad_width) {
+              margin-bottom: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//=============== travel ===============
+.travel {
+  .headTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 90px 0 60px 0;
+    .title {
+      font-size: $제목크기;
+    }
+    .more {
+      float: right;
+      a {
+        color: $메인컬러;
+        font-weight: 500;
+        font-size: 15px;
+      }
+    }
+  }
+  .travelWrap {
+    width: 100%;
+    overflow: hidden;
+    .jejuTravel {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 150px;
+      @include mobile-screen($mobile_width) {
+        padding-bottom: 40px;
+      }
+      li {
+        margin: 80px 40px 0 40px;
+        border-radius: 15px;
+        @include mobile-screen($iPad_M_width) {
+          margin: 100px 20px 0 20px;
+        }
+        @include mobile-screen($mobile_width) {
+          margin: 100px 8px 0 8px;
+          padding-bottom: 80px;
+        }
+        a {
+          img {
+            border-radius: 15px;
+            width: 100%;
+          }
+        }
+        &:hover {
+          transform: translateY(-.5%);
+          box-shadow: 0 4rem 3rem rgba(0, 0, 0, .2);}
+      }
+    }
+    .textBox {
+      position: absolute;
+      width: 87%;
+      height: 35%;
+      padding: 6.5%;
+      bottom: 0;
+      strong {
+        font-size: 20px;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 12%;
+        @include mobile-screen($pc_width) {
+          margin-bottom: 5%;
+        }
+        @include mobile-screen($iPad_width) {
+          font-size: 16px;
+        }
+        @include mobile-screen($mobile_width) {
+          font-size: 14px;
+        }
+      }
+      p {
+        font-size: $메뉴서브크기;
+        @include mobile-screen($iPad_width) {
+          font-size: 13px;
+        }
+
+        @include mobile-screen($iPad_M_width) {
+          display: none;
+        }
+      }
+      .travelMoreBtn {
+        font-size: 15px;
+        margin-top: 16%;
+        line-height: 2;
+        border-bottom: 1px solid black;
+        @include mobile-screen($pc_width) {
+          font-size: 13px;
+          margin-top: 20%;
+        }
+        @include mobile-screen($iPad_width) {
+          font-size: 12px;
+          margin-top: 5%;
+        }
+        @include mobile-screen($iPad_M_width) {
+          display: block;
+          margin-top: 22%;
+        }
+        @include mobile-screen($mobile_width) {
+          display: none;
+        }
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          right: 30px;
+          background: url(../images/black-arrow.png) no-repeat;
+        }
+      }
+    }
+    a {
+      display: block;
+      position: relative;
+    }
+  }
+  .rectBtn {
+    .prev {
+      left: 0;
+    }
+    .next {
+      right: 0;
+    }
+  }
+}
+//=============== jejuSearch ===============
+.jejuSearch {
+  background-image: url(../images/JEJU_06.jpg);
+  width: 100%;
+  height: 300px;
+  margin-bottom: 150px;
+  background-size: cover;
+  @include mobile-screen($mobile_width) {
+    margin-bottom: 50px;
+  }
+  .titleWrap {
+    text-align: center;
+    @include mobile-screen(1423px) {
+    }
+    .title {
+      padding-top: 80px;
+      font-size: 30px;
+      color: white;
+      text-shadow: 2px 2px 5px #444;
+    }
+    p {
+      padding-bottom: 20px;
+      font-size: $메뉴서브크기;
+      color: white;
+    }
+  }
+  .searchWrap {
+    position: relative;
+    text-align: center;
+    form {
+      input {
+        border: 2px solid $메인컬러;
+        width: 500px;
+        height: 50px;
+        @include mobile-screen($mobile_width) {
+          width: 240px;
+          height: 35px;
+        }
+        &::placeholder {
+          font-size: $메뉴크기;
+          padding-left: 10px;
+        }
+      }
+      button {
+        color: $서브컬러;
+        border: none;
+        width: 85px;
+        height: 54px;
+        background-color: $메인컬러;
+        @include mobile-screen($mobile_width) {
+          width: 60px;
+          height: 39px;
+        }
+        &:hover {
+          background-color: #777;
+        }
+      }
+    }
+    .choiceBtn {
+      padding-top: 10px;
+      margin-left: -200px;
+      @include mobile-screen($mobile_width) {
+        margin-left: 0;
+      }
+      button {
+        margin-right: 10px;
+        width: 115px;
+        height: 35px;
+        color: white;
+        font-size: 14px;
+        background-color: $메인컬러;
+        border: none;
+        border-radius: 5px;
+        @include mobile-screen($mobile_width) {
+          width: 90px;
+        }
+        &::after {
+          content: "";
+          display: inline-block;
+          margin-left: 15px;
+          background: url(../images/close.png);
+          width: 12px;
+          height: 12px;
+        }
+        &:hover {
+          border: 1px solid white;
+        }
+      }
+    }
+  }
+}
+//=============== jejuService ===============
+.jejuService {
+  .service {
+    .title {
+      padding: 50px 0 150px 50px;
+      font-size: $제목크기;
+      @include mobile-screen($mobile_width) {
+        padding: 20px 0 40px 10px;
+        font-size: 18px;
+      }
+    }
+    .quickMenu {
+      padding-bottom: 11vw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    li {
+      border-radius: 50%;
+      background: white;
+      width: 100px;
+      height: 100px;
+      padding: 40px;
+      @include mobile-screen($iPad_width) {
+        padding: 2%;
+      }
+      @include mobile-screen($mobile_width) {
+        padding: 0;
+        width: 24vw;
+        height: 24vw;
+        margin: 2vw;
+      }
+      @include pos($p: relative);
+      &:first-child {
+        &:focus .icon1,
+        &:hover .icon1 {
+          background-image: url(../images/card-wh.png);
+        }
+      }
+      &:nth-child(2) {
+        &:focus .icon2,
+        &:hover .icon2 {
+          background-image: url(../images/hotel-wh.png);
+        }
+      }
+      &:nth-child(3) {
+        &:focus .icon3,
+        &:hover .icon3 {
+          background-image: url(../images/car-wh.png);
+        }
+      }
+      &:nth-child(4) {
+        &:focus .icon4,
+        &:hover .icon4 {
+          background-image: url(../images/duty-free-wh.png);
+        }
+      }
+      &:nth-child(5) {
+        &:focus .icon5,
+        &:hover .icon5 {
+          background-image: url(../images/insurance-wh.png);
+        }
+      }
+      &:last-child {
+        &:focus .icon6,
+        &:hover .icon6 {
+          background-image: url(../images/guide-book-wh.png);
+        }
+      }
+      &:focus,
+      &:hover {
+        background-color: $메인컬러;
+      }
+      &:focus span,
+      &:hover span {
+        color: white;
+      }
+      a {
+        @include pos($top: 50%, $left: 50%);
+        transform: translateX(-50%) translateY(-50%);
+        display: block;
+        text-align: center;
+        p {
+          width: 96px;
+          height: 96px;
+          margin-left: 3px;
+          background-repeat: no-repeat;
+          @include mobile-screen($mobile_width) {
+            width: 0;
+            height: 0;
+          }
+        }
+        .icon1 {
+          background-image: url(../images/masl__credit-card-pc.png);
+        }
+        .icon2 {
+          background-image: url(../images/masl__hotel-pc.png);
+        }
+        .icon3 {
+          background-image: url(../images/masl__rental-car-pc.png);
+        }
+        .icon4 {
+          background-image: url(../images/masl__duty-free-pc.png);
+        }
+        .icon5 {
+          background-image: url(../images/masl__insurance-pc.png);
+        }
+        .icon6 {
+          background-image: url(../images/masl__guide-book-pc.png);
+        }
+        span {
+          display: block;
+          text-align: center;
+          white-space: nowrap;
+          font: {
+            size: 15px;
+            weight: bold;
+          }
+          @include mobile-screen($mobile_width) {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+footer {
+  background: #000
+    linear-gradient(
+      153deg,
+      rgba(119, 122, 129, 0.5),
+      rgba(50, 51, 53, 0.5) 200vh
+    );
+  .footTop {
+    border-bottom: 1px solid $서브컬러;
+    padding-bottom: 200px;
+    .footLogo {
+      padding: 110px 0 60px 0;
+      @include mobile-screen($iPad_width) {
+        padding: 50px 0 50px 0;
+      }
+      img {
+        width: 20%;
+      }
+    }
+    .footerMenu {
+      float: left;
+      .fMenu {
+        float: left;
+        margin-right: 30px;
+        p {
+          font-size: $메뉴크기;
+          color: white;
+          padding-bottom: 20px;
+        }
+        .fSub {
+          @include mobile-screen($iPad_width) {
+            display: none;
+          }
+          li {
+            a {
+              line-height: 1.3;
+              font-weight: 500;
+              font-size: 14px;
+              color: rgb(177, 177, 177);
+              &:hover {
+                color: $메인컬러;
+              }
+            }
+          }
+        }
+      }
+    }
+    .footerRight {
+      float: right;
+      .appChoice {
+        display: inline-flex;
+        padding-bottom: 30px;
+        p {
+          margin-left: 10px;
+        }
+      }
+      @include mobile-screen($mobile_width) {
+        display: none;
+      }
+      .call {
+        strong {
+          font-size: $메뉴크기;
+          color: white;
+        }
+        span {
+          a {
+            color: $메인컬러;
+            font-size: $제목크기;
+          }
+        }
+        p {
+          color: white;
+        }
+      }
+    }
+  }
+  .footBottom {
+    display: flex;
+    .addressWrap {
+      padding: 30px 0 100px 0;
+      p {
+        font-size: 15px;
+        line-height: 2;
+        color: $서브컬러;
+        @include mobile-screen($iPad_width) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .snsWrap {
+    position: absolute;
+    right: 0;
+    ul {
+      padding-top: 30px;
+      li {
+        display: inline-block;
+        a {
+          img {
+            width: 55px;
+            height: 55px;
+          }
+        }
+      }
+    }@include mobile-screen($mobile_width){
+      position: relative;
+    }
+  }
+}
+.popup {
+  > div {
+    position: absolute;
+    display: none;
+    background-color: white;
+    top: 350px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 630px;
+    height: 500px;
+    margin: 0 auto;
+    z-index: 10000;
+    border-radius: 30px;
+    box-shadow:  10px 15px rgba(100, 100, 100, 0.08);
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(100, 100, 100, 0.8);
+    box-shadow: 5px 5px 15px 5px rgba(100, 100, 100, 0.8);
+    @include mobile-screen($iPad_M_width) {
+      width: 90%;
+      height: 600px;
+    }
+    @include mobile-screen($mobile_width) {
+      height: 400px;
+    }
+    p {
+      padding: 25px;
+      float: right;
+    }
+    .popupWrap {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 20%;
+      h2 {
+        padding: 40px 0 80px 0;
+        font-size: 30px;
+        @include mobile-screen($mobile_width) {
+          padding: 30px 0 30px 0;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .popupDep {
+    input {
+      width: 500px;
+      height: 50px;
+      padding-left: 20px;
+      font-size: $메뉴크기;
+      border: 3px solid $메인컬러;
+      @include mobile-screen($mobile_width) {
+        width: 470px;
+        height: 47px;
+      }
+      @include mobile-screen($m640) {
+        width: 220px;
+        height: 25px;
+      }
+    }
+    button {
+      margin-top: 100px;
+      border: none;
+      font-size: 19px;
+      background-color: white;
+      background: url(../images/map-pin-stroke.svg) no-repeat;
+      padding-left: 25px;
+      @include mobile-screen($mobile_width) {
+        margin-top: 30%;
+      }
+    }
+  }
+  .popupArr {
+    input {
+      width: 500px;
+      height: 50px;
+      padding-left: 20px;
+      font-size: $메뉴크기;
+      border: 3px solid $메인컬러;
+      @include mobile-screen($mobile_width) {
+        width: 470px;
+        height: 47px;
+      }
+      @include mobile-screen($m640) {
+        width: 220px;
+        height: 27px;
+      }
+    }
+    button {
+      margin-top: 100px;
+      border: none;
+      font-size: 19px;
+      background-color: white;
+      background: url(../images/map-pin-stroke.svg) no-repeat;
+      padding-left: 25px;
+    }
+  }
+  .popupCal {
+    .popupWrap {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 20%;
+      h1 {
+        @include mobile-screen($mobile_width) {
+          padding: 0 10px;
+        }
+      }
+      h2 {
+        padding: 0 0 30px 0;
+        font-size: 20px;
+        color: $링크서브;
+        font-weight: 400;
+        @include mobile-screen($mobile_width) {
+          padding: 0 0 10px 0;
+          font-size: 18px;
+        }
+      }
+      .dateWrap {
+        .fixDate {
+          .infoDate {
+            justify-content: space-evenly;
+            display: flex;
+            font-size: 25px;
+            div {
+              padding: 20px 0px;
+              @include mobile-screen($mobile_width) {
+                font-size: 20px;
+                padding: 10px 10px 0 10px;
+              }
+            }
+          }
+        }
+      }
+      .calendarWrap {
+        display: flex;
+        justify-content: space-between;
+        .calWrap {
+          width: 250px;
+          margin: 10px auto;
+          text-align: center;
+          @include mobile-screen($mobile_width) {
+            width: 130px;
+          }
+          h1 {
+            font-size: 20px;
+          }
+          .btn {
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+          }
+          li {
+            list-style: none;
+          }
+          table,
+          th,
+          td {
+            border: none;
+            line-height: 30px;
+          }
+          table {
+            width: 100%;
+          }
+          td.on {
+            background-color: $메인컬러;
+            color: white;
+          }
+        }
+        .calendar1,
+        .calendar2 {
+          padding: 0 20px 20px 20px;
+          @include mobile-screen($mobile_width) {
+            padding: 0 10px 10px 10px;
+          }
+        }
+      }
+    }
+  }
+  .popupPass {
+    .passengerWrap {
+      display: flex;
+      justify-content: space-between;
+      > div {
+        text-align: center;
+        width: 150px;
+        padding: 20px;
+        @include mobile-screen($mobile_width) {
+          width: 100px;
+          padding: 10px;
+        }
+        @include mobile-screen($m640) {
+          width: 80px;
+          padding: 5px;
+        }
+      }
+      strong {
+        font-size: 20px;
+      }
+      span {
+        padding: 5px;
+        font: {
+          size: 20px;
+          weight: 400;
+        }
+      }
+      button {
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid $메인컬러;
+        background-color: white;
+        &:hover {
+          background-color: #777;
+          border: white;
+          img {
+            @include mobile-screen($mobile_width) {
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+        @include mobile-screen($mobile_width) {
+          width: 30px;
+          height: 30px;
+        }
+        @include mobile-screen($m640) {
+          font-size: 10px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

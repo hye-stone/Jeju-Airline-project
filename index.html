@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jeju airline</title>
+    <link rel="sortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery.datetimepicker.full.js"></script>
+  </head>
+  <body>
+    <div class="skip">
+      <a href="#container">본문 바로가기</a>
+      <a href="#nav">메인 메뉴 바로가기</a>
+    </div>
+    <!-- HEADER -->
+    <header>
+      <div class=" clearFix">
+        <h1 class="logo">
+          <a href="index.html"><img src="images/Logo.png" alt="제주항공 로고"></a>
+        </h1>
+        <nav>
+          <ul id="nav">
+            <li>
+              <a href="#">항공권 예매</a>
+              <div class="sub">
+                <ul class="subWrap">
+                  <li>
+                    <a href="#void">항공권 예매</a>
+                    <ul class="subList">
+                      <li><a href="#void">일반/보너스 예매</a></li>
+                      <li><a href="#void">조회/변경/환불</a></li>
+                      <li><a href="#void">보너스 좌석 상황 보기</a></li>
+                      <li><a href="#void">보너스 알리미</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#void">운항 일정</a>
+                    <ul class="subList">
+                      <li><a href="#void">국내선 운임</a></li>
+                      <li><a href="#void">국제선 운임</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#void">단체예약신청</a>
+                    <ul class="subList">
+                      <li><a href="#void">단체예약신청</a></li>
+                      <li><a href="#void">민항공후급증 예약</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#void">모바일 탑승권</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#">서비스 안내</a>
+              <div class="sub">
+                <ul class="subWrap">
+                  <li>
+                    <a href="#void">예약안내</a>
+                    <ul class="subList">
+                      <li><a href="#void">항공권 예매</a></li>
+                      <li><a href="#void">항공권 환불</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#void">기내 서비스</a>
+                    <ul class="subList">
+                      <li><a href="#void">기내서비스</a></li>
+                      <li><a href="#void">Air Cafe</a></li>
+                      <li><a href="#void">기내면세품 판매</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#void">부가서비스</a>
+                    <ul class="subList">
+                      <li><a href="#void">사전 수하물 구매</a></li>
+                      <li><a href="#void">사전 좌석 구매</a></li>
+                      <li><a href="#void">사전 기내식 주문</a></li>
+                      <li><a href="#void">기타 유료 아이템</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#void">공항서비스</a>
+                    <ul class="subList">
+                      <li><a href="#void">탑승수속안내</a></li>
+                      <li><a href="#void">모바일 탑승권</a></li>
+                      <li><a href="#void">도움이 필요한 고객</a></li>
+                      <li><a href="#void">기내 유실물 조회</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#void">회원 혜택존</a>
+                    <ul class="subList">
+                      <li><a href="#void">쿠폰혜택</a></li>
+                      <li><a href="#void">쿠폰안내</a></li>
+                      <li><a href="#void">카드 및 환전 혜택</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#">여행 상품</a>
+              <div class="sub">
+                <ul class="subWrap">
+                  <li>
+                    <a href="#void">여행상품</a>
+                  </li>
+                  <li>
+                    <a href="#void">호텔</a>
+                  </li>
+                  <li>
+                    <a href="#void">렌터카</a>
+                  </li>
+                  <li>
+                    <a href="#void">여행자 보험</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#">마이페이지</a>
+              <div class="sub">
+                <ul class="subWrap">
+                  <li>
+                    <a href="#void">나의 예약</a>
+                  </li>
+                  <li>
+                    <a href="#void">조회/변경/취소</a>
+                  </li>
+                  <li>
+                    <a href="#void">나의 포인트</a>
+                  </li>
+                  <li>
+                    <a href="#void">나의 쿠폰</a>
+                  </li>
+                  <li>
+                    <a href="#void">나의 정보수정</a>
+                  </li>
+                  <li>
+                    <a href="#void">나의 탑승내역</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div class="gnb">
+            <div class="weatherWrap">
+              <div class="weatherIcon">
+                <img src="" alt="">
+              </div>
+            </div>
+            <div class="alarm">
+              <a href="#void"><img src="images/bell.png" alt="alarm"></a>
+            </div>
+            <div class="login">
+              <a href="#void"><img src="images/user.png" alt="login"></a>
+            </div>
+            <div class="hamBtn">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </nav>
+        <div id="mNav">
+            <ul class="mNav">
+              <li>
+                <a href="#" class="mTitle">항공권 예매</a>
+                <div class="sub">
+                  <ul class="subWrap">
+                    <li><a href="#void">항공권 예매</a></li>
+                    <li><a href="#void">운항 일정</a></li>
+                    <li><a href="#void">단체예약신청</a></li>
+                    <li><a href="#void">모바일 탑승권</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="mTitle">서비스 안내</a>
+                <div class="sub">
+                  <ul class="subWrap">
+                    <li><a href="#void">예약안내</a></li>
+                    <li><a href="#void">기내 서비스</a></li>
+                    <li><a href="#void">부가서비스</a></li>
+                    <li><a href="#void">공항서비스</a></li>
+                    <li><a href="#void">회원 혜택존</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="mTitle">여행 상품</a>
+                <div class="sub">
+                  <ul class="subWrap">
+                    <li><a href="#void">여행상품</a></li>
+                    <li><a href="#void">호텔</a></li>
+                    <li><a href="#void">렌터카</a></li>
+                    <li><a href="#void">여행자 보험</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="mTitle">마이페이지</a>
+                <div class="sub">
+                  <ul class="subWrap">
+                    <li><a href="#void">나의 예약</a></li>
+                    <li><a href="#void">조회/변경/취소</a></li>
+                    <li><a href="#void">나의 포인트</a></li>
+                    <li><a href="#void">나의 쿠폰</a></li>
+                    <li><a href="#void">나의 정보수정</a></li>
+                    <li><a href="#void">나의 탑승내역</a></li>
+            </ul>
+            <div class="langWrap">
+              <select name="lang" id="lang" class="lang">
+                <option value="">Korean</option>
+                <option value="">English</option>
+                <option value="">French</option>
+              </select>
+            </div>
+        </div>
+      </div>
+    </header>
+    <!-- #container -->
+    <section id="container">
+      <h2 class="blind">container</h2>
+      <!-- mainBanner -->
+      <section id="mainBanner">
+        <h3 class="blind">메인배너</h3>
+        <div class="mBannerWrap center">
+          <div class="bannerText">
+            <div class="bText">
+              <p>Have a nice flight to</p><br>
+              <span>JEJU</span>
+            </div>
+          </div>
+          <div class="book">
+            <button>예약 조회하기</button>
+            <button>체크인하기</button>
+            <button>항공편현황</button>
+          </div>
+          <div class="bannerImg">
+            <img src="images/mainBanner.jpg" alt="jeju banner">
+          </div>
+          <div class="searchWrap">
+            <div class="search">
+              <div><h2>항공권 예매</h2></div>
+              <div class="searchType">
+                <ul class="searchList">
+                  <li class="active"><a href="#void">왕복</a></li>
+                  <li><a href="#void">편도</a></li>
+                  <li><a href="#void">다구간</a></li>
+                  <li><a href="#void">단체예약</a></li>
+                </ul>
+              </div>
+              <div class="bookingWrap">
+                <ul class="booking">
+                  <li><button class="from">출발지</button></li>
+                  <li><button class="to">도칙지</button></li>
+                  <li><input class="depart" id="datetime" placeholder="출발일"></li>
+                  <li><input class="return" id="datetime1" placeholder="도착일"></li>
+                  <li><button class="pass">성인 1명</button></li>
+                </ul>
+                <div class="searchBtn"><button>예매하기</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- contents -->
+      <!-- jeju event -->
+      <section class="event center">
+        <div class="headTitle">
+        <h2 class="title">이벤트</h2>
+        <p class="more"><a href="#void">View all +</a></p>
+        </div>
+        <div class="eventWrap">
+          <ul class="jejuEvent clearFix">
+            <li>
+              <a href="#void"
+                ><img src="images/b1-1.png" alt="event1">
+                <div class="textBox">
+                  <strong>제주항공 밀키트 출시 이벤트</strong>
+                  <span>2021.07.23 ~ 2021.08.15</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/b1-2.png" alt="event2">
+                <div class="textBox">
+                  <strong>소중한 내자전거의 캐링백 서비스 오픈!</strong>
+                  <span>2021.05.10 ~ 2021.08.31</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/b1-3.png" alt="event3">
+                <div class="textBox">
+                  <strong
+                    >트립닷컴에서 예약하고, 리프레시포인트 적립
+                    받으세요!</strong
+                  >
+                  <span>2020.08.10 ~ 2021.12.31</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/b1-4.png" alt="event4">
+                <div class="textBox">
+                  <strong>탐나는 전</strong>
+                  <span>2021.06.01 ~ 2021.05.31</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- <ul class="arrow">
+                    <li class="prev"><a href="#void">prev</a></li>
+                    <li class="next"><a href="#void">next</a></li>
+                </ul> -->
+        </div>
+      </section>
+      <!-- jeju notice -->
+      <section class="notice">
+        <div class="center clearFix"> 
+          <div class="noticeText">
+        <h2>공지사항</h2>
+        <p>제주항공의 새로운 소식을 알려드립니다.</p>
+        <p class="more"><a href="#void">View all +</a></p>
+        </div>
+        <div class="noticeWrap leftNews">
+          <ul>
+            <li>
+              <a href="#void"><span>7월 'JJ MEMBER'S 특가' 댓글 이벤트 당첨자 발표</span>
+                <span>2021.07.30</span></a>
+            </li>
+            <li>
+              <a href="#void"><span>코로나 바이러스 각 국가 입출국제한 안내</span>
+                <span>2021.07.28</span></a >
+            </li>
+            <li>
+              <a href="#void"><span>국제선 유류할증료 공지</span>
+                <span>2021.07.20</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="noticeWrap rightNews">
+          <ul>
+            <li>
+              <a href="#void"><span>홈페이지 시스템 점검 안내</span>
+                <span>2021.07.14</span></a>
+            </li>
+            <li>
+              <a href="#void"><span>JJ라운지 한시적 미운영 안내</span>
+                <span>2021.07.13</span></a>
+            </li>
+            <li>
+              <a href="#void"><span>제주항공 국제선 특별항공편 스케줄 </span>
+                <span>2021.07.12</span></a>
+            </li>
+          </ul>
+          </div>
+        </div>
+      </section>
+      <!-- jeju travel -->
+      <section class="travel center">
+        <div class="headTitle">
+        <h2 class="title">여행지 추천</h2>
+        <p class="more"><a href="#void">View all +</a></p>
+        </div>
+        <div class="travelWrap">
+          <ul class="jejuTravel">
+            <li>
+              <a href="#void"
+                ><img src="images/b2-1.png" alt="travel1">
+                <div class="textBox">
+                  <strong>금능 해수욕장</strong>
+                  <p>투명한 맑은 물과 흰 모래와 조가비가 섞여 길게
+                    이어진 아름다운 백사장, 낙조의 경관이 환상적인
+                    이곳 앞바다에는 비양도가 있다. 얕고 새파란</p>
+                  <p class="travelMoreBtn">더 알아보기</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/b2-2.png" alt="travel2">
+                <div class="textBox">
+                  <strong>성산일출봉</strong>
+                  <p>푸른 바다 사이에 우뚝 솟은 성채와 같은 모양,
+                    봉우리 정상에 있는 거대한 사발 모양의 분화구,
+                    그리고 그 위에서 맞이하는 일출의 장관</p>
+                  <p class="travelMoreBtn">더 알아보기</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/b2-3.png" alt="travel3">
+                <div class="textBox">
+                  <strong>마라도</strong>
+                  <p>마라도는 대한민국 최남단에 위치한 섬이며,
+                    모슬포항에서 11km 정도 떨어져 있다. 면적은
+                    0.3km2, 해안선의 길이는 4.2km이고</p>
+                  <p class="travelMoreBtn">더 알아보기</p>
+                </div>
+              </a>
+            </li>
+            <!-- <li>
+              <a href="#void"
+                ><img src="images/b2-3.png" alt="travel4">
+                <div class="textBox">
+                  <strong>마라도</strong>
+                  <p>마라도는 대한민국 최남단에 위치한 섬이며,<br> 
+                    모슬포항에서 11km 정도 떨어져 있다. 면적은<br> 
+                    0.3km2, 해안선의 길이는 4.2km이고...</p>
+                  <p class="travelMoreBtn">더 알아보기</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/b2-3.png" alt="travel5">
+                <div class="textBox">
+                  <strong>마라도</strong>
+                  <p>마라도는 대한민국 최남단에 위치한 섬이며,<br> 
+                    모슬포항에서 11km 정도 떨어져 있다. 면적은<br> 
+                    0.3km2, 해안선의 길이는 4.2km이고...</p>
+                  <p class="travelMoreBtn">더 알아보기</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/b2-3.png" alt="travel6">
+                <div class="textBox">
+                  <strong>마라도</strong>
+                  <p>마라도는 대한민국 최남단에 위치한 섬이며,<br> 
+                    모슬포항에서 11km 정도 떨어져 있다. 면적은<br> 
+                    0.3km2, 해안선의 길이는 4.2km이고...</p>
+                  <p class="travelMoreBtn">더 알아보기</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="rectBtn">
+            <li class="prev"><a href="#">1</a></li>
+            <li class="next"><a href="#">2</a></li>
+          </ul> -->
+        </div>
+      </section>
+      <!-- jeju search -->
+      <section class="jejuSearch">
+        <div class="center">
+        <div class="titleWrap">
+        <h2 class="title">여행 상품 찾기</h2>
+        <p>원하시는 상품을 검색해 보세요</p>
+        </div>
+        <div class="searchWrap">
+          <form class="search">
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요"
+              name="search"
+            />
+            <button type="submit">검색</button>
+          </form>
+          <div class="choiceBtn">
+            <button>제주여행</button>
+            <button>홍콩여행</button>
+            <button>대만여행</button>
+          </div>
+          </div>
+        </div>
+      </section>
+      <!-- jeju service btn -->
+      <section class="jejuService">
+          <div class="service center">
+            <h2 class="title">여행의 완성을 위한 경험</h2>
+            <ul class="quickMenu">
+              <li>
+                <a href="#void"><p class="icon1"></p><span>제주항공 카드</span></a>
+              </li>
+              <li>
+                <a href="#void"><p class="icon2"></p><span>호텔</span></a>
+              </li>
+              <li>
+                <a href="#void"><p class="icon3"></p><span>렌터카</span></a>
+              </li>
+              <li>
+                <a href="#void"><p class="icon4"></p><span>기내 면세점</span></a>
+              </li>
+              <li>
+                <a href="#void"><p class="icon5"></p><span>여행자 보험</span></a>
+              </li>
+              <li>
+                <a href="#void"><p class="icon6"></p><span>여행 상품</span></a>
+              </li>
+            </ul>
+        </div>
+      </section>
+    </section>
+    <!-- footer -->
+    <footer>
+      <div class="center">
+        <div class="footTop">
+          <p class="footLogo">
+            <a href="#void"><img src="images/jejuairlogo_kr.png" alt="footer logo"></a>
+          </p>
+          <ul class="footerMenu clearFix">
+            <li class="fMenu">
+              <p>회사소개</p>
+              <ul class="fSub">
+                <li><a href="#void">제주항공에 대하여</a></li>
+                <li><a href="#void">기업지배구조</a></li>
+                <li><a href="#void">지속가능경영</a></li>
+                <li><a href="#void">뉴스룸 새 창 열기</a></li>
+                <li><a href="#void">공지사항</a></li>
+              </ul>
+            </li>
+            <li class="fMenu">
+              <p>고객 지원</p>
+              <ul class="fSub">
+                <li><a href="#void">공지사항</a></li>
+                <li><a href="#void">챗봇 서비스</a></li>
+                <li><a href="#void">자주 묻는 질문</a></li>
+                <li><a href="#void">고객의 말씀</a></li>
+                <li><a href="#void">서비스 센터</a></li>
+                <li><a href="#void">e-서식함</a></li>
+              </ul>
+            </li>
+            <li class="fMenu">
+              <p>약관 및 규정</p>
+              <ul class="fSub">
+                <li><a href="#void">개인정보 처리방침</a></li>
+                <li><a href="#void">이용약관</a></li>
+                <li><a href="#void">운송약관</a></li>
+                <li><a href="#void">소비자 안전 관련 정보</a></li>
+                <li><a href="#void">운임 및 서비스 요금표</a></li>
+              </ul>
+            </li>
+            <li class="fMenu">
+              <p>기타 안내</p>
+              <ul class="fSub">
+                <li><a href="#void">고객 안내 서비스</a></li>
+                <li><a href="#void">항공교통이용 서비스 계획</a></li>
+                <li><a href="#void">항공교통이용 피해구제</a></li>
+                <li><a href="#void">관련 사이트</a></li>
+                <li><a href="#void">사이트맵</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="footerRight">
+          <div class="appChoice">
+            <p>
+              <a href="#void"
+                ><img src="images/banner-appstore.svg" alt="apple"
+              /></a>
+            </p>
+            <p>
+              <a href="#void"
+                ><img src="images/banner-googleplay.svg" alt="google"
+              /></a>
+            </p>
+          </div>
+          <div class="call">
+            <strong>고객센터</strong><br>
+            <span><a href="tel:1599-1500">1599-1500</a></span>
+            <p>(한국)09:00~19:00</p>
+            <p>(일본)월~금 14:00~18:00/토,일 휴무</p>
+          </div>
+          </div>
+        </div>
+        <div class="footBottom">
+          <div class="addressWrap">
+            <address>
+              <p>사업자등록번호 : 616-81-50527 대표이사:김이배|제주특별자치도 제주시 신대로 64(연동,건설공제회관 3층)</p>
+              <p>copyright ©JEJUAIR.All Rights Reserved.</p>
+            </address>
+          </div>
+          <div class="snsWrap">
+            <ul>
+            <li>
+              <a href="#void"
+                ><img src="images/sns__link--youtube.svg" alt="youtube"
+              /></a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/sns__link--instagram.svg" alt="instagram"
+              /></a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/sns__link--facebook.svg" alt="facebook"
+              /></a>
+            </li>
+            <li>
+              <a href="#void"
+                ><img src="images/sns__link--twitter.svg" alt="twitter"
+              /></a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- popup -->
+    <div class="popup">
+    <div class="popupDep">
+      <p><a href="#"><img src="images/popup-close.png" alt="close button" class="popCloseBtn"></a></p>
+      <div class="popupWrap">
+        <h2>출발지 검색</h2>
+        <input type="text" placeholder="도시, 공항" />
+        <button>모든 지역 보기</button>
+        <!-- <div>
+          <button class="confirm" type="button">확인</button>
+        </div> -->
+      </div>
+    </div>
+    <div class="popupArr">
+      <p><a href="#"><img src="images/popup-close.png" alt="close button" class="popCloseBtn"></a>
+      <div class="popupWrap">
+        <h2>도착지 검색</h2>
+        <input type="text" placeholder="도시, 공항" />
+        <button>모든 지역 보기</button>
+        <!-- <div>
+          <button class="confirm" type="button">확인</button>
+        </div> -->
+      </div>
+    </div>
+    <div class="popupCal">
+      <p><a href="#"><img src="images/popup-close.png" alt="close button" class="popCloseBtn"></a></p>
+      <div class="popupWrap">
+        <h1>탑승일 선택</h1>
+        <div class="dateWrap">
+          <div class="fixDate">
+            <div class="infoDate">
+              <div class="arrText">
+                <strong>가는 날</strong>
+              </div>
+              <div><img src="./images/airplane.svg" alt="airport_image"></div>
+              <div class="depText">
+                <strong>오는 날</strong>
+              </div>
+            </div>
+          </div>
+          <div class="calendarWrap">
+          <div class="calendar1">
+            <div class="calWrap">
+              <h2 class="monthTitle1"></h2>
+              <ul class="btn">
+                <li><a href="#void" class="prevBtn"><img src="images/left.png" alt=""></a></li>
+                <li><a href="#void" class="nextBtn"><img src="images/right.png" alt=""></a></li>
+              </ul>
+              <div class="cal1"></div>
+            </div>
+          </div>
+          <div class="calendar2">
+            <div class="calWrap">
+              <h2 class="monthTitle2"></h2>
+              <ul class="btn">
+                <li><a href="#void" class="prevBtn"><img src="images/left.png" alt=""></a></li>
+                <li><a href="#void" class="nextBtn"><img src="images/right.png" alt=""></a></li>
+              </ul>
+              <div class="cal2"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- <div>
+          <button class="confirm" type="button">확인</button>
+        </div> -->
+      </div>
+    </div>
+    <div class="popupPass">
+      <p><a href="#"><img src="images/popup-close.png" alt="close button" class="popCloseBtn"></a></p>
+      <div class="popupWrap">
+        <h2>승객 선택</h2>
+        <div class="passengerWrap">
+          <div class="adult">
+            <strong>성인</strong>
+            <div class="numClick">
+              <button class="downClick">-</button>
+              <span class="aNum">0</span>
+              <button class="upClick">+</button>
+            </div>
+          </div>
+          <div class="child">
+            <strong>소아</strong>
+            <div class="numClick">
+              <button class="downClick">-</button>
+              <span class="aNum">0</span>
+              <button class="upClick">+</button>
+            </div>
+          </div>
+          <div class="infant">
+            <strong>유아</strong>
+            <div class="numClick">
+              <button class="downClick">-</button>
+              <span class="aNum">0</span>
+              <button class="upClick">+</button>
+            </div>
+          </div>
+          <!-- <div>
+            <button class="confirm" type="button">확인</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cal.js"></script> -->
+    <script>
+      $("#datetime").datetimepicker({
+        step:5
+      });
+      $("#datetime1").datetimepicker({
+        step:5
+      });
+    </script>
+  </body>
+</html>
